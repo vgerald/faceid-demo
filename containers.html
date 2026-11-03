@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Container Directory · Smartihats Home Lab</title>
-  <meta name="description" content="A public, sanitized directory of the Docker containers keeping the Smartihats home lab running — with a light touch of office politics.">
+  <meta name="description" content="A public, sanitized directory of the Docker containers keeping the Smartihats home lab running — grouped by stack, with a light touch of office politics.">
   <meta name="color-scheme" content="light dark">
   <style>
     :root {
@@ -40,44 +40,52 @@
       color: var(--ink);
       line-height: 1.55;
     }
-    .wrap { max-width: 1040px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
     header { margin-bottom: 2.5rem; }
-    header .kicker {
-      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--accent);
-    }
+    header .kicker { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
     h1 { font-size: clamp(1.6rem, 4vw, 2.3rem); margin: 0.35rem 0 0.5rem; letter-spacing: -0.02em; }
-    header p.sub { margin: 0; color: var(--muted); max-width: 60ch; }
-    section { margin-top: 2.5rem; }
-    .section-head { display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    header p.sub { margin: 0; color: var(--muted); max-width: 62ch; }
+
+    .host { margin-top: 2.5rem; }
+    .host-head { display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem; }
     h2 { font-size: 1.25rem; margin: 0; letter-spacing: -0.01em; }
-    .count {
-      font-size: 0.78rem; font-weight: 600; color: var(--muted);
-      background: var(--accent-soft); padding: 0.15rem 0.6rem; border-radius: 999px;
-    }
+    .count { font-size: 0.78rem; font-weight: 600; color: var(--muted); background: var(--accent-soft); padding: 0.15rem 0.6rem; border-radius: 999px; }
     .host-note { width: 100%; color: var(--muted); font-size: 0.9rem; margin: 0.1rem 0 0; }
-    ul.fleet { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+
+    /* Each stack is a tinted panel. Its hue is supplied as --acc; the light
+       background and border are mixed from it, so it adapts to the theme. */
+    .stack {
+      --acc: var(--accent);
+      background: var(--bg);
+      background: color-mix(in srgb, var(--acc) 9%, var(--card));
+      border: 1px solid var(--line);
+      border: 1px solid color-mix(in srgb, var(--acc) 26%, var(--line));
+      border-radius: 16px;
+      padding: 0.85rem 0.95rem 1.05rem;
+      margin-top: 1.1rem;
+    }
+    .stack-head { display: flex; align-items: center; gap: 0.55rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+    .stack-dot { width: 11px; height: 11px; border-radius: 50%; background: var(--acc); flex: none; box-shadow: 0 0 0 4px color-mix(in srgb, var(--acc) 20%, transparent); }
+    .stack-head h3 { margin: 0; font-size: 1rem; letter-spacing: -0.01em; color: color-mix(in srgb, var(--acc) 45%, var(--ink)); }
+    .stack-count { font-size: 0.75rem; font-weight: 600; color: color-mix(in srgb, var(--acc) 70%, var(--muted)); margin-left: auto; white-space: nowrap; }
+    .stack-grid { display: grid; gap: 0.7rem; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); }
+
     .card {
-      background: var(--card); border: 1px solid var(--line); border-radius: 14px;
-      padding: 1rem 1.1rem; display: flex; flex-direction: column; gap: 0.65rem;
+      background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+      padding: 0.85rem 0.95rem; display: flex; flex-direction: column; gap: 0.55rem;
       transition: transform 120ms ease, box-shadow 120ms ease;
     }
-    .card:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(15, 25, 45, 0.10); }
-    .card .head { display: flex; align-items: center; gap: 0.55rem; flex-wrap: wrap; }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(15, 25, 45, 0.12); }
+    .card .head { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
     .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--ok); flex: none; }
-    .name { font-weight: 650; font-size: 0.98rem; }
+    .name { font-weight: 650; font-size: 0.96rem; }
     .badges { margin-left: auto; display: flex; gap: 0.35rem; flex-wrap: wrap; }
-    .badge {
-      font-size: 0.72rem; font-weight: 600; padding: 0.14rem 0.55rem; border-radius: 999px;
-      background: var(--ok-soft); color: var(--ok); white-space: nowrap;
-    }
-    .badge.proj { background: var(--accent-soft); color: var(--accent); }
-    .desc { margin: 0; font-size: 0.92rem; color: var(--muted); }
+    .badge { font-size: 0.7rem; font-weight: 600; padding: 0.14rem 0.55rem; border-radius: 999px; background: var(--ok-soft); color: var(--ok); white-space: nowrap; }
+    .badge.proj { background: color-mix(in srgb, var(--acc) 16%, transparent); color: color-mix(in srgb, var(--acc) 82%, var(--ink)); }
+    .desc { margin: 0; font-size: 0.9rem; color: var(--muted); }
     .desc b { color: var(--ink); font-weight: 600; }
-    footer {
-      margin-top: 3.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line);
-      color: var(--muted); font-size: 0.85rem;
-    }
+
+    footer { margin-top: 3.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; }
     footer .disclaimer { margin-top: 0.5rem; font-size: 0.8rem; }
     code { font-family: var(--mono); font-size: 0.875em; }
     @media (prefers-reduced-motion: reduce) { .card, .card:hover { transform: none; transition: none; } }
@@ -89,174 +97,244 @@
       <span class="kicker">Smartihats Home Lab</span>
       <h1>Container Directory</h1>
       <p class="sub">
-        The complete roster of Docker containers on duty, across two hosts.
-        All staff are currently <em>up and running</em>. Public summary only —
-        network details, paths, and employee records have been sanitized by policy.
+        The complete roster of Docker containers on duty, across two hosts — grouped by
+        the stack each belongs to. All staff are currently <em>up and running</em>.
+        Public summary only: network details, paths, and employee records have been sanitized by policy.
       </p>
     </header>
 
-    <section aria-labelledby="s1">
-      <div class="section-head">
+    <!-- ============ SMART HOME SERVER ============ -->
+    <div class="host" aria-labelledby="s1">
+      <div class="host-head">
         <h2 id="s1">Smart Home Server</h2>
-        <span class="count">25 containers</span>
-        <p class="host-note">The one that runs the lights the camera doesn't look at, the documents nobody asks for, and 47 workflows you didn't know existed.</p>
+        <span class="count">25 containers · 10 stacks</span>
+        <p class="host-note">The one that runs the lights, the documents nobody asks for, and 47 workflows you didn't know existed.</p>
       </div>
-      <ul class="fleet">
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">homeassistant</span>
-            <span class="badges"><span class="badge proj">Home Assistant 2026.10</span><span class="badge">running</span></span></div>
-          <p class="desc">Office manager. Remembers when you left the lights on, tells the fridge to be quiet, and files a two-hundred-line incident report whenever someone asks for the Wi-Fi password.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">pihole</span>
-            <span class="badges"><span class="badge proj">Pi-hole 2026.10</span><span class="badge">running</span></span></div>
-          <p class="desc">The intern who blocks bad ads at the door. Has strong opinions about your streaming service. Will never, ever admit it does anything.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">immich_server</span>
-            <span class="badges"><span class="badge proj">Immich v3.3</span><span class="badge">running</span></span></div>
-          <p class="desc">The photo vault. Holds every photo, including the ones taken to document the failure of other photos. Self-hosted, because the cloud is basically a parking lot.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">immich_machine_learning</span>
-            <span class="badges"><span class="badge proj">Immich ML v3.3</span><span class="badge">running</span></span></div>
-          <p class="desc">Looks at every face twice and pretends not to recognize the family. Actually runs facial-recognition shifts like it's a hobby.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">immich_postgres</span>
-            <span class="badges"><span class="badge proj">PostgreSQL 14 + vector</span><span class="badge">running</span></span></div>
-          <p class="desc">Immich's hippocampus. Remembers every caption, every tag, and everything the ML colleague said. Refuses to talk to outsiders.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">immich_redis</span>
-            <span class="badges"><span class="badge proj">Valkey 9</span><span class="badge">running</span></span></div>
-          <p class="desc">Immich's sticky-note habit. Keeps the queues straight so things don't get lost between shifts.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">n8n</span>
-            <span class="badges"><span class="badge proj">n8n 2.42</span><span class="badge">running</span></span></div>
-          <p class="desc">The workflow coordinator. Handles forty-seven automations you didn't know existed and twelve you don't even remember.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">n8n-postgres</span>
-            <span class="badges"><span class="badge proj">PostgreSQL 16</span><span class="badge">running</span></span></div>
-          <p class="desc">n8n's memory. Knows where every workflow body went. Never talks about it in meetings.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">searxng</span>
-            <span class="badges"><span class="badge proj">SearXNG 2026.10</span><span class="badge">running</span></span></div>
-          <p class="desc">The private search engine. Asks Google, Brave, and DuckDuckGo without telling them it's you. No tracking, no profiling, no small talk.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">music-assistant</span>
-            <span class="badges"><span class="badge proj">Music Assistant Server 2.10</span><span class="badge">running</span></span></div>
-          <p class="desc">The music department. Connects your streaming services to the house so it sounds smarter than it is. Plays in the background and never takes credit.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">paperless-webserver</span>
-            <span class="badges"><span class="badge proj">Paperless-ngx 3.3</span><span class="badge">running</span></span></div>
-          <p class="desc">The filing cabinet with ambition. Scans everything, files it, and calls it "digitally organized" — nobody has seen the inside since 2024.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">paperless-broker</span>
-            <span class="badges"><span class="badge proj">Redis 7</span><span class="badge">running</span></span></div>
-          <p class="desc">Paperless' message queue. Hands documents between departments before anyone gets a chance to complain about the process.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">paperless-gotenberg</span>
-            <span class="badges"><span class="badge proj">Gotenberg 8</span><span class="badge">running</span></span></div>
-          <p class="desc">The intern who converts anything to PDF on demand. Never sleeps, never argues, always produces clean output.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">paperless-tika</span>
-            <span class="badges"><span class="badge proj">Apache Tika 4.1</span><span class="badge">running</span></span></div>
-          <p class="desc">Reads the documents so the archive doesn't have to. Has absorbed a lot. Has not explained what it learned.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">nginx-proxy-manager-app-1</span>
-            <span class="badges"><span class="badge proj">Nginx Proxy Manager</span><span class="badge">running</span></span></div>
-          <p class="desc">The front desk. Decides who gets in, hands out TLS certificates, and takes credit for literally everyone else's work.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">remote-laptop</span>
-            <span class="badges"><span class="badge proj">Ubuntu Desktop (LXDE + VNC)</span><span class="badge">running</span></span></div>
-          <p class="desc">A 2004-era laptop that lives in the cloud so you don't have to remember it exists. Occasionally appears in the browser with zero explanation.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">openssh-server</span>
-            <span class="badges"><span class="badge proj">LinuxServer.io openssh-server</span><span class="badge">running</span></span></div>
-          <p class="desc">The sandboxed doorman. Only holds hallway keys — which is exactly why it's the safest doorman in the office.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">duckdns</span>
-            <span class="badges"><span class="badge proj">DuckDNS (LinuxServer.io)</span><span class="badge">running</span></span></div>
-          <p class="desc">The mail carrier who updates the office address every time the office moves. Free service, no reactivation, never mentions lunch.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">calibre-web-automated</span>
-            <span class="badges"><span class="badge proj">Calibre-Web v4.0</span><span class="badge">running</span></span></div>
-          <p class="desc">The librarian. Shelves your e-books so you can forget they exist. Auto-imports, silently, very professionally.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">code-server</span>
-            <span class="badges"><span class="badge proj">VS Code server 4.109</span><span class="badge">running</span></span></div>
-          <p class="desc">VS Code in a box, in the server closet. Same editor, no local fan noise, and zero blame next time something hangs a build.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">coolify-realtime</span>
-            <span class="badges"><span class="badge proj">Soketi (via Coolify)</span><span class="badge">running</span></span></div>
-          <p class="desc">The office radio. Announces deployments to anyone who cares in real time. Everyone else ignores it.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">coolify-redis</span>
-            <span class="badges"><span class="badge proj">Redis 7</span><span class="badge">running</span></span></div>
-          <p class="desc">Another Redis. What could possibly go wrong?</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">coolify-db</span>
-            <span class="badges"><span class="badge proj">PostgreSQL 15</span><span class="badge">running</span></span></div>
-          <p class="desc">Coolify's memory. Knows the deployment secrets and has chosen, very rationally, not to share them.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">portainer</span>
-            <span class="badges"><span class="badge proj">Portainer CE</span><span class="badge">running</span></span></div>
-          <p class="desc">The manager who manages nothing. Can see every container and console into every container, yet still asks someone else to read the logs.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">portainer_agent</span>
-            <span class="badges"><span class="badge proj">Portainer Agent 2.33</span><span class="badge">running</span></span></div>
-          <p class="desc">Portainer's yes-man. Does whatever the manager says, every time, without questions and without a break.</p>
-        </li>
-      </ul>
-    </section>
 
-    <section aria-labelledby="s2">
-      <div class="section-head">
-        <h2 id="s2">AI Rig</h2>
-        <span class="count">3 containers</span>
-        <p class="host-note">The graphics-card machine that runs the local models and keeps a few other friends close.</p>
+      <div class="stack" style="--acc:#2f6fed" role="group" aria-label="Home Assistant and remote access stack">
+        <div class="stack-head"><span class="stack-dot" aria-hidden="true"></span><h3>Home Assistant &amp; Remote Access</h3><span class="stack-count">3 services</span></div>
+        <div class="stack-grid">
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">homeassistant</span>
+              <span class="badges"><span class="badge proj">Home Assistant 2026.10</span><span class="badge">running</span></span></div>
+            <p class="desc">Office manager. Remembers when you left the lights on, tells the fridge to be quiet, and files a two-hundred-line incident report whenever someone asks for the Wi-Fi password.</p>
+          </article>
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">duckdns</span>
+              <span class="badges"><span class="badge proj">DuckDNS</span><span class="badge">running</span></span></div>
+            <p class="desc">The mail carrier who updates the office address every time the office moves. Free service, no reactivation, never mentions lunch.</p>
+          </article>
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">openssh-server</span>
+              <span class="badges"><span class="badge proj">LinuxServer.io openssh-server</span><span class="badge">running</span></span></div>
+            <p class="desc">The sandboxed doorman. Only holds hallway keys — which is exactly why it's the safest doorman in the office.</p>
+          </article>
+        </div>
       </div>
-      <ul class="fleet">
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">open-webui</span>
-            <span class="badges"><span class="badge proj">Open WebUI (main)</span><span class="badge">running</span></span></div>
-          <p class="desc">The face of the AI department. Lets you talk to local models so you can claim at parties that you "built your own AI."</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">caddy</span>
-            <span class="badges"><span class="badge proj">Caddy 2.11</span><span class="badge">running</span></span></div>
-          <p class="desc">The bouncer who does paperwork. Serves Open WebUI on the right port, hands out certificates, never asks for anything back.</p>
-        </li>
-        <li class="card">
-          <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">portainer</span>
-            <span class="badges"><span class="badge proj">Portainer CE</span><span class="badge">running</span></span></div>
-          <p class="desc">The other Portainer. Fresh hire, same job. Please do not tell the first Portainer about this.</p>
-        </li>
-      </ul>
-    </section>
+
+      <div class="stack" style="--acc:#7c3aed" role="group" aria-label="Immich photo stack">
+        <div class="stack-head"><span class="stack-dot" aria-hidden="true"></span><h3>Immich</h3><span class="stack-count">4 services</span></div>
+        <div class="stack-grid">
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">immich_server</span>
+              <span class="badges"><span class="badge proj">Immich v3.3</span><span class="badge">running</span></span></div>
+            <p class="desc">The photo vault. Holds every photo, including the ones taken to document the failure of other photos. Self-hosted, because the cloud is basically a parking lot.</p>
+          </article>
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">immich_machine_learning</span>
+              <span class="badges"><span class="badge proj">Immich ML v3.3</span><span class="badge">running</span></span></div>
+            <p class="desc">Looks at every face twice and pretends not to recognize the family. Runs facial-recognition shifts like it's a hobby.</p>
+          </article>
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">immich_postgres</span>
+              <span class="badges"><span class="badge proj">PostgreSQL 14 + vector</span><span class="badge">running</span></span></div>
+            <p class="desc">Immich's hippocampus. Remembers every caption, every tag, and everything the ML colleague said. Refuses to talk to outsiders.</p>
+          </article>
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">immich_redis</span>
+              <span class="badges"><span class="badge proj">Valkey 9</span><span class="badge">running</span></span></div>
+            <p class="desc">Immich's sticky-note habit. Keeps the queues straight so things don't get lost between shifts.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="stack" style="--acc:#16a34a" role="group" aria-label="n8n automation stack">
+        <div class="stack-head"><span class="stack-dot" aria-hidden="true"></span><h3>n8n Automation</h3><span class="stack-count">2 services</span></div>
+        <div class="stack-grid">
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">n8n</span>
+              <span class="badges"><span class="badge proj">n8n 2.42</span><span class="badge">running</span></span></div>
+            <p class="desc">The workflow coordinator. Handles forty-seven automations you didn't know existed and twelve you don't even remember.</p>
+          </article>
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">n8n-postgres</span>
+              <span class="badges"><span class="badge proj">PostgreSQL 16</span><span class="badge">running</span></span></div>
+            <p class="desc">n8n's memory. Knows where every workflow body went. Never talks about it in meetings.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="stack" style="--acc:#d97706" role="group" aria-label="Paperless-ngx document stack">
+        <div class="stack-head"><span class="stack-dot" aria-hidden="true"></span><h3>Paperless-ngx</h3><span class="stack-count">4 services</span></div>
+        <div class="stack-grid">
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">paperless-webserver</span>
+              <span class="badges"><span class="badge proj">Paperless-ngx 3.3</span><span class="badge">running</span></span></div>
+            <p class="desc">The filing cabinet with ambition. Scans everything, files it, and calls it "digitally organized" — nobody has seen the inside since 2024.</p>
+          </article>
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">paperless-broker</span>
+              <span class="badges"><span class="badge proj">Redis 7</span><span class="badge">running</span></span></div>
+            <p class="desc">Paperless' message queue. Hands documents between departments before anyone gets a chance to complain about the process.</p>
+          </article>
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">paperless-gotenberg</span>
+              <span class="badges"><span class="badge proj">Gotenberg 8</span><span class="badge">running</span></span></div>
+            <p class="desc">The intern who converts anything to PDF on demand. Never sleeps, never argues, always produces clean output.</p>
+          </article>
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">paperless-tika</span>
+              <span class="badges"><span class="badge proj">Apache Tika 4.1</span><span class="badge">running</span></span></div>
+            <p class="desc">Reads the documents so the archive doesn't have to. Has absorbed a lot. Has not explained what it learned.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="stack" style="--acc:#4f46e5" role="group" aria-label="Coolify deployment stack">
+        <div class="stack-head"><span class="stack-dot" aria-hidden="true"></span><h3>Coolify</h3><span class="stack-count">3 services</span></div>
+        <div class="stack-grid">
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">coolify-realtime</span>
+              <span class="badges"><span class="badge proj">Soketi · via Coolify</span><span class="badge">running</span></span></div>
+            <p class="desc">The office radio. Announces deployments to anyone who cares in real time. Everyone else ignores it.</p>
+          </article>
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">coolify-redis</span>
+              <span class="badges"><span class="badge proj">Redis 7</span><span class="badge">running</span></span></div>
+            <p class="desc">Another Redis. What could possibly go wrong?</p>
+          </article>
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">coolify-db</span>
+              <span class="badges"><span class="badge proj">PostgreSQL 15</span><span class="badge">running</span></span></div>
+            <p class="desc">Coolify's memory. Knows the deployment secrets and has chosen, very rationally, not to share them.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="stack" style="--acc:#e11d48" role="group" aria-label="Portainer stack">
+        <div class="stack-head"><span class="stack-dot" aria-hidden="true"></span><h3>Portainer</h3><span class="stack-count">2 services</span></div>
+        <div class="stack-grid">
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">portainer</span>
+              <span class="badges"><span class="badge proj">Portainer CE</span><span class="badge">running</span></span></div>
+            <p class="desc">The manager who manages nothing. Can see every container and console into every container, yet still asks someone else to read the logs.</p>
+          </article>
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">portainer_agent</span>
+              <span class="badges"><span class="badge proj">Portainer Agent 2.33</span><span class="badge">running</span></span></div>
+            <p class="desc">Portainer's yes-man. Does whatever the manager says, every time, without questions and without a break.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="stack" style="--acc:#0d9488" role="group" aria-label="SearXNG search">
+        <div class="stack-head"><span class="stack-dot" aria-hidden="true"></span><h3>SearXNG</h3><span class="stack-count">1 service</span></div>
+        <div class="stack-grid">
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">searxng</span>
+              <span class="badges"><span class="badge proj">SearXNG 2026.10</span><span class="badge">running</span></span></div>
+            <p class="desc">The private search engine. Asks Google, Brave, and DuckDuckGo without telling them it's you. No tracking, no profiling, no small talk.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="stack" style="--acc:#db2777" role="group" aria-label="Media and reading stack">
+        <div class="stack-head"><span class="stack-dot" aria-hidden="true"></span><h3>Media &amp; Reading</h3><span class="stack-count">2 services</span></div>
+        <div class="stack-grid">
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">music-assistant</span>
+              <span class="badges"><span class="badge proj">Music Assistant Server 2.10</span><span class="badge">running</span></span></div>
+            <p class="desc">The music department. Plumbs your streaming services into the house so it sounds smarter than it is. Plays in the background and never takes credit.</p>
+          </article>
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">calibre-web-automated</span>
+              <span class="badges"><span class="badge proj">Calibre-Web v4.0</span><span class="badge">running</span></span></div>
+            <p class="desc">The librarian. Shelves your e-books so you can forget they exist. Auto-imports, silently, very professionally.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="stack" style="--acc:#0891b2" role="group" aria-label="Remote and developer tools stack">
+        <div class="stack-head"><span class="stack-dot" aria-hidden="true"></span><h3>Remote &amp; Dev Tools</h3><span class="stack-count">2 services</span></div>
+        <div class="stack-grid">
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">code-server</span>
+              <span class="badges"><span class="badge proj">VS Code server 4.109</span><span class="badge">running</span></span></div>
+            <p class="desc">VS Code in a box, in the server closet. Same editor, no local fan noise, and zero blame next time something hangs a build.</p>
+          </article>
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">remote-laptop</span>
+              <span class="badges"><span class="badge proj">Ubuntu Desktop · LXDE + VNC</span><span class="badge">running</span></span></div>
+            <p class="desc">A 2004-era laptop that lives in the cloud so you don't have to remember it exists. Occasionally appears in the browser with zero explanation.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="stack" style="--acc:#64748b" role="group" aria-label="Edge and networking stack">
+        <div class="stack-head"><span class="stack-dot" aria-hidden="true"></span><h3>Edge &amp; Networking</h3><span class="stack-count">2 services</span></div>
+        <div class="stack-grid">
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">pihole</span>
+              <span class="badges"><span class="badge proj">Pi-hole 2026.10</span><span class="badge">running</span></span></div>
+            <p class="desc">The intern who blocks bad ads at the door. Has strong opinions about your streaming service. Will never, ever admit it does anything.</p>
+          </article>
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">nginx-proxy-manager-app-1</span>
+              <span class="badges"><span class="badge proj">Nginx Proxy Manager</span><span class="badge">running</span></span></div>
+            <p class="desc">The front desk. Decides who gets in, hands out TLS certificates, and takes credit for literally everyone else's work.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ AI RIG ============ -->
+    <div class="host" aria-labelledby="s2">
+      <div class="host-head">
+        <h2 id="s2">AI Rig</h2>
+        <span class="count">3 containers · 2 stacks</span>
+        <p class="host-note">The graphics-card machine that runs the local models and keeps a couple of other friends close.</p>
+      </div>
+
+      <div class="stack" style="--acc:#2f6fed" role="group" aria-label="Open WebUI stack">
+        <div class="stack-head"><span class="stack-dot" aria-hidden="true"></span><h3>Open WebUI</h3><span class="stack-count">2 services</span></div>
+        <div class="stack-grid">
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">open-webui</span>
+              <span class="badges"><span class="badge proj">Open WebUI (main)</span><span class="badge">running</span></span></div>
+            <p class="desc">The face of the AI department. Lets you talk to local models so you can claim at parties that you "built your own AI."</p>
+          </article>
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">caddy</span>
+              <span class="badges"><span class="badge proj">Caddy 2.11</span><span class="badge">running</span></span></div>
+            <p class="desc">The bouncer who does paperwork. Serves Open WebUI on the right port, hands out certificates, never asks for anything back.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="stack" style="--acc:#e11d48" role="group" aria-label="Portainer">
+        <div class="stack-head"><span class="stack-dot" aria-hidden="true"></span><h3>Portainer</h3><span class="stack-count">1 service</span></div>
+        <div class="stack-grid">
+          <article class="card">
+            <div class="head"><span class="dot" aria-hidden="true"></span><span class="name">portainer</span>
+              <span class="badges"><span class="badge proj">Portainer CE</span><span class="badge">running</span></span></div>
+            <p class="desc">The other Portainer. Fresh hire, same job. Please do not tell the first Portainer about this.</p>
+          </article>
+        </div>
+      </div>
+    </div>
 
     <footer>
-      <p>Last updated: <time datetime="2026-11-03">November 3, 2026</time> · 28 containers across 2 hosts · all reported running at time of publication.</p>
+      <p>Last updated: <time datetime="2026-11-03">November 3, 2026</time> · 28 containers · 12 stacks · all reported running at time of publication.</p>
       <p class="disclaimer">
         Public summary. Hostnames, IP addresses, ports, paths, and credentials are intentionally omitted.
         Version numbers are upstream release families, not internal build identifiers.
