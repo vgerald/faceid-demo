@@ -1,0 +1,640 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "hermes-agent",
+  "elements": [
+    {
+      "type": "text",
+      "id": "title",
+      "x": 330,
+      "y": 20,
+      "width": 440,
+      "height": 30,
+      "text": "Self-maintaining Smart Home \u2014 Architecture",
+      "fontSize": 24,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "originalText": "Self-maintaining Smart Home \u2014 Architecture",
+      "autoResize": true,
+      "boundElements": [],
+      "opacity": 100,
+      "strokeWidth": 0
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "x": 770,
+      "y": 608,
+      "width": 300,
+      "height": 20,
+      "text": "all inference on-prem \u2014 data never leaves the home",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "strokeColor": "#5b6575",
+      "originalText": "all inference on-prem \u2014 data never leaves the home",
+      "autoResize": true,
+      "textAlign": "center",
+      "boundElements": [],
+      "opacity": 100,
+      "strokeWidth": 0
+    },
+    {
+      "type": "rectangle",
+      "id": "household",
+      "x": 50,
+      "y": 250,
+      "width": 210,
+      "height": 100,
+      "roundness": {
+        "type": 3
+      },
+      "backgroundColor": "#a5d8ff",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "opacity": 100,
+      "strokeColor": "#1e1e1e",
+      "boundElements": [
+        {
+          "id": "t_household",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_household",
+      "x": 60,
+      "y": 260,
+      "width": 190,
+      "height": 80,
+      "text": "Household\nphone alerts & approvals",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "household",
+      "originalText": "Household\nphone alerts & approvals",
+      "autoResize": true,
+      "boundElements": [],
+      "opacity": 100,
+      "strokeWidth": 0
+    },
+    {
+      "type": "rectangle",
+      "id": "sre",
+      "x": 340,
+      "y": 250,
+      "width": 290,
+      "height": 180,
+      "roundness": {
+        "type": 3
+      },
+      "backgroundColor": "#d0bfff",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "opacity": 100,
+      "strokeColor": "#1e1e1e",
+      "boundElements": [
+        {
+          "id": "t_sre",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_sre",
+      "x": 350,
+      "y": 260,
+      "width": 270,
+      "height": 160,
+      "text": "Hermes SRE Agent\nmonitors \u00b7 diagnoses \u00b7 repairs",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "sre",
+      "originalText": "Hermes SRE Agent\nmonitors \u00b7 diagnoses \u00b7 repairs",
+      "autoResize": true,
+      "boundElements": [],
+      "opacity": 100,
+      "strokeWidth": 0
+    },
+    {
+      "type": "rectangle",
+      "id": "coder",
+      "x": 790,
+      "y": 60,
+      "width": 250,
+      "height": 90,
+      "roundness": {
+        "type": 3
+      },
+      "backgroundColor": "#ffd8a8",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "opacity": 100,
+      "strokeColor": "#1e1e1e",
+      "boundElements": [
+        {
+          "id": "t_coder",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_coder",
+      "x": 800,
+      "y": 70,
+      "width": 230,
+      "height": 70,
+      "text": "Coding Assistant\nautonomous CLI agent",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "coder",
+      "originalText": "Coding Assistant\nautonomous CLI agent",
+      "autoResize": true,
+      "boundElements": [],
+      "opacity": 100,
+      "strokeWidth": 0
+    },
+    {
+      "type": "rectangle",
+      "id": "gateway",
+      "x": 790,
+      "y": 195,
+      "width": 250,
+      "height": 120,
+      "roundness": {
+        "type": 3
+      },
+      "backgroundColor": "#ffd8a8",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "opacity": 100,
+      "strokeColor": "#1e1e1e",
+      "boundElements": [
+        {
+          "id": "t_gateway",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_gateway",
+      "x": 800,
+      "y": 205,
+      "width": 230,
+      "height": 100,
+      "text": "Model Gateway\none API for every model",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "gateway",
+      "originalText": "Model Gateway\none API for every model",
+      "autoResize": true,
+      "boundElements": [],
+      "opacity": 100,
+      "strokeWidth": 0
+    },
+    {
+      "type": "rectangle",
+      "id": "models",
+      "x": 790,
+      "y": 460,
+      "width": 250,
+      "height": 130,
+      "roundness": {
+        "type": 3
+      },
+      "backgroundColor": "#b2f2bb",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "opacity": 100,
+      "strokeColor": "#1e1e1e",
+      "boundElements": [
+        {
+          "id": "t_models",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_models",
+      "x": 800,
+      "y": 470,
+      "width": 230,
+      "height": 110,
+      "text": "Local Models\nchat \u00b7 code \u00b7 vision \u00b7 memory",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "models",
+      "originalText": "Local Models\nchat \u00b7 code \u00b7 vision \u00b7 memory",
+      "autoResize": true,
+      "boundElements": [],
+      "opacity": 100,
+      "strokeWidth": 0
+    },
+    {
+      "type": "rectangle",
+      "id": "ha",
+      "x": 50,
+      "y": 470,
+      "width": 210,
+      "height": 100,
+      "roundness": {
+        "type": 3
+      },
+      "backgroundColor": "#c3fae8",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "opacity": 100,
+      "strokeColor": "#1e1e1e",
+      "boundElements": [
+        {
+          "id": "t_ha",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_ha",
+      "x": 60,
+      "y": 480,
+      "width": 190,
+      "height": 80,
+      "text": "Smart Home Hub\nHome Assistant",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "ha",
+      "originalText": "Smart Home Hub\nHome Assistant",
+      "autoResize": true,
+      "boundElements": [],
+      "opacity": 100,
+      "strokeWidth": 0
+    },
+    {
+      "type": "rectangle",
+      "id": "devices",
+      "x": 340,
+      "y": 470,
+      "width": 290,
+      "height": 100,
+      "roundness": {
+        "type": 3
+      },
+      "backgroundColor": "#fff3bf",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "opacity": 100,
+      "strokeColor": "#1e1e1e",
+      "boundElements": [
+        {
+          "id": "t_devices",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "t_devices",
+      "x": 350,
+      "y": 480,
+      "width": 270,
+      "height": 80,
+      "text": "Cameras & Sensors\nlights \u00b7 locks \u00b7 presence",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "devices",
+      "originalText": "Cameras & Sensors\nlights \u00b7 locks \u00b7 presence",
+      "autoResize": true,
+      "boundElements": [],
+      "opacity": 100,
+      "strokeWidth": 0
+    },
+    {
+      "type": "arrow",
+      "id": "a1",
+      "x": 260,
+      "y": 300,
+      "width": 80,
+      "height": 0,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          80,
+          0
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "strokeColor": "#1e1e1e",
+      "strokeStyle": "solid",
+      "boundElements": [
+        {
+          "id": "t_a1",
+          "type": "text"
+        }
+      ],
+      "opacity": 100,
+      "strokeWidth": 2,
+      "fillStyle": "solid"
+    },
+    {
+      "type": "text",
+      "id": "t_a1",
+      "x": 240.0,
+      "y": 278.0,
+      "width": 120,
+      "height": 20,
+      "text": "instructions \u2194 alerts",
+      "fontSize": 14,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "a1",
+      "originalText": "instructions \u2194 alerts",
+      "autoResize": true,
+      "boundElements": [],
+      "opacity": 100,
+      "strokeWidth": 0
+    },
+    {
+      "type": "arrow",
+      "id": "a2",
+      "x": 485,
+      "y": 430,
+      "width": 0,
+      "height": 40,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          40
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "strokeColor": "#1e1e1e",
+      "strokeStyle": "solid",
+      "boundElements": [
+        {
+          "id": "t_a2",
+          "type": "text"
+        }
+      ],
+      "opacity": 100,
+      "strokeWidth": 2,
+      "fillStyle": "solid"
+    },
+    {
+      "type": "text",
+      "id": "t_a2",
+      "x": 425.0,
+      "y": 428.0,
+      "width": 120,
+      "height": 20,
+      "text": "inspect \u00b7 repair \u00b7 reports",
+      "fontSize": 14,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "a2",
+      "originalText": "inspect \u00b7 repair \u00b7 reports",
+      "autoResize": true,
+      "boundElements": [],
+      "opacity": 100,
+      "strokeWidth": 0
+    },
+    {
+      "type": "arrow",
+      "id": "a6",
+      "x": 340,
+      "y": 400,
+      "width": 160,
+      "height": 70,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          -160,
+          70
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "strokeColor": "#1e1e1e",
+      "strokeStyle": "solid",
+      "boundElements": [
+        {
+          "id": "t_a6",
+          "type": "text"
+        }
+      ],
+      "opacity": 100,
+      "strokeWidth": 2,
+      "fillStyle": "solid"
+    },
+    {
+      "type": "text",
+      "id": "t_a6",
+      "x": 200.0,
+      "y": 413.0,
+      "width": 120,
+      "height": 20,
+      "text": "state & alarms",
+      "fontSize": 14,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "a6",
+      "originalText": "state & alarms",
+      "autoResize": true,
+      "boundElements": [],
+      "opacity": 100,
+      "strokeWidth": 0
+    },
+    {
+      "type": "arrow",
+      "id": "a3",
+      "x": 630,
+      "y": 300,
+      "width": 160,
+      "height": 0,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          160,
+          0
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "strokeColor": "#1e1e1e",
+      "strokeStyle": "dashed",
+      "boundElements": [
+        {
+          "id": "t_a3",
+          "type": "text"
+        }
+      ],
+      "opacity": 100,
+      "strokeWidth": 2,
+      "fillStyle": "solid"
+    },
+    {
+      "type": "text",
+      "id": "t_a3",
+      "x": 650.0,
+      "y": 278.0,
+      "width": 120,
+      "height": 20,
+      "text": "prompts",
+      "fontSize": 14,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "a3",
+      "originalText": "prompts",
+      "autoResize": true,
+      "boundElements": [],
+      "opacity": 100,
+      "strokeWidth": 0
+    },
+    {
+      "type": "arrow",
+      "id": "a4",
+      "x": 915,
+      "y": 150,
+      "width": 0,
+      "height": 45,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          45
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "strokeColor": "#1e1e1e",
+      "strokeStyle": "dashed",
+      "boundElements": [
+        {
+          "id": "t_a4",
+          "type": "text"
+        }
+      ],
+      "opacity": 100,
+      "strokeWidth": 2,
+      "fillStyle": "solid"
+    },
+    {
+      "type": "text",
+      "id": "t_a4",
+      "x": 855.0,
+      "y": 150.5,
+      "width": 120,
+      "height": 20,
+      "text": "requests",
+      "fontSize": 14,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "a4",
+      "originalText": "requests",
+      "autoResize": true,
+      "boundElements": [],
+      "opacity": 100,
+      "strokeWidth": 0
+    },
+    {
+      "type": "arrow",
+      "id": "a5",
+      "x": 915,
+      "y": 315,
+      "width": 0,
+      "height": 145,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          145
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "strokeColor": "#1e1e1e",
+      "strokeStyle": "solid",
+      "boundElements": [
+        {
+          "id": "t_a5",
+          "type": "text"
+        }
+      ],
+      "opacity": 100,
+      "strokeWidth": 2,
+      "fillStyle": "solid"
+    },
+    {
+      "type": "text",
+      "id": "t_a5",
+      "x": 855.0,
+      "y": 365.5,
+      "width": 120,
+      "height": 20,
+      "text": "routes by task",
+      "fontSize": 14,
+      "fontFamily": 1,
+      "strokeColor": "#1e1e1e",
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "a5",
+      "originalText": "routes by task",
+      "autoResize": true,
+      "boundElements": [],
+      "opacity": 100,
+      "strokeWidth": 0
+    }
+  ],
+  "appState": {
+    "viewBackgroundColor": "#ffffff"
+  },
+  "files": {}
+}

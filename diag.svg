@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 660" role="img" aria-label="Architecture diagram of a self-maintaining smart home" style="font-family:Segoe Print, Comic Sans MS, cursive, sans-serif">
+<defs><marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L9,3 L0,6 Z" fill="#1e1e1e"/></marker></defs>
+<text x="550" y="42" text-anchor="middle" font-size="26" fill="#1e1e1e" transform="rotate(-0.5 550 42)">Self-maintaining Smart Home — Architecture</text>
+<path d="M330,58 Q450,52 700,60" stroke="#1e1e1e" stroke-width="2" fill="none" stroke-linecap="round"/>
+<g transform="rotate(0.3 155.0 300.0)">
+<rect x="50" y="250" width="210" height="100" rx="14" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="155.0" y="296.0" text-anchor="middle" font-size="19" fill="#1e1e1e" font-weight="bold">Household</text>
+<text x="155.0" y="320.0" text-anchor="middle" font-size="14" fill="#444a55">phone alerts & approvals</text>
+</g>
+<g transform="rotate(-0.4 485.0 340.0)">
+<rect x="340" y="250" width="290" height="180" rx="14" fill="#d0bfff" stroke="#1e1e1e" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="485.0" y="336.0" text-anchor="middle" font-size="19" fill="#1e1e1e" font-weight="bold">Hermes SRE Agent</text>
+<text x="485.0" y="360.0" text-anchor="middle" font-size="14" fill="#444a55">monitors · diagnoses · repairs</text>
+</g>
+<g transform="rotate(0.4 915.0 105.0)">
+<rect x="790" y="60" width="250" height="90" rx="14" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="915.0" y="101.0" text-anchor="middle" font-size="19" fill="#1e1e1e" font-weight="bold">Coding Assistant</text>
+<text x="915.0" y="125.0" text-anchor="middle" font-size="14" fill="#444a55">autonomous CLI agent</text>
+</g>
+<g transform="rotate(-0.5 915.0 255.0)">
+<rect x="790" y="195" width="250" height="120" rx="14" fill="#ffd8a8" stroke="#1e1e1e" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="915.0" y="251.0" text-anchor="middle" font-size="19" fill="#1e1e1e" font-weight="bold">Model Gateway</text>
+<text x="915.0" y="275.0" text-anchor="middle" font-size="14" fill="#444a55">one API for every model</text>
+</g>
+<g transform="rotate(0.5 915.0 525.0)">
+<rect x="790" y="460" width="250" height="130" rx="14" fill="#b2f2bb" stroke="#1e1e1e" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="915.0" y="521.0" text-anchor="middle" font-size="19" fill="#1e1e1e" font-weight="bold">Local Models</text>
+<text x="915.0" y="545.0" text-anchor="middle" font-size="14" fill="#444a55">chat · code · vision · memory</text>
+</g>
+<g transform="rotate(0.3 155.0 520.0)">
+<rect x="50" y="470" width="210" height="100" rx="14" fill="#c3fae8" stroke="#1e1e1e" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="155.0" y="516.0" text-anchor="middle" font-size="19" fill="#1e1e1e" font-weight="bold">Smart Home Hub</text>
+<text x="155.0" y="540.0" text-anchor="middle" font-size="14" fill="#444a55">Home Assistant</text>
+</g>
+<g transform="rotate(-0.3 485.0 520.0)">
+<rect x="340" y="470" width="290" height="100" rx="14" fill="#fff3bf" stroke="#1e1e1e" stroke-width="2.5" stroke-linejoin="round"/>
+<text x="485.0" y="516.0" text-anchor="middle" font-size="19" fill="#1e1e1e" font-weight="bold">Cameras & Sensors</text>
+<text x="485.0" y="540.0" text-anchor="middle" font-size="14" fill="#444a55">lights · locks · presence</text>
+</g>
+<path d="M260,300 Q300.0,290.0 340,300" fill="none" stroke="#1e1e1e" stroke-width="2.5" stroke-linecap="round" marker-end="url(#ar)"/>
+<text x="300" y="287" text-anchor="middle" font-size="13" fill="#39404c">instructions ↔ alerts</text>
+<path d="M485,430 Q495.0,450.0 485,470" fill="none" stroke="#1e1e1e" stroke-width="2.5" stroke-linecap="round" marker-end="url(#ar)"/>
+<text x="490" y="442" text-anchor="middle" font-size="13" fill="#39404c">inspect · repair · reports</text>
+<path d="M340,400 Q260.0,425.0 180,470" fill="none" stroke="#1e1e1e" stroke-width="2.5" stroke-linecap="round" marker-end="url(#ar)"/>
+<text x="260" y="422" text-anchor="middle" font-size="13" fill="#39404c">state & alarms</text>
+<path d="M630,300 Q710.0,290.0 790,300" fill="none" stroke="#1e1e1e" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="7 6" marker-end="url(#ar)"/>
+<text x="710" y="287" text-anchor="middle" font-size="13" fill="#39404c">prompts</text>
+<path d="M915,150 Q925.0,172.5 915,195" fill="none" stroke="#1e1e1e" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="7 6" marker-end="url(#ar)"/>
+<text x="920" y="164" text-anchor="middle" font-size="13" fill="#39404c">requests</text>
+<path d="M915,315 Q925.0,387.5 915,460" fill="none" stroke="#1e1e1e" stroke-width="2.5" stroke-linecap="round" marker-end="url(#ar)"/>
+<text x="920" y="380" text-anchor="middle" font-size="13" fill="#39404c">routes by task</text>
+<text x="915" y="626" text-anchor="middle" font-size="14" fill="#5b6575">all inference on-prem — data never leaves the home</text>
+</svg>
