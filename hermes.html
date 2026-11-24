@@ -42,7 +42,7 @@ footer b{color:var(--txt)}
 @media(max-width:560px){.ex{font-size:12px}.name{font-size:14px}}
 </style></head><body><div class="wrap">
 <h1><span class="logo">⚡ Hermes</span> — Capabilities &amp; Skills</h1>
-<p class="sub">An autonomous home-automation <b>SRE</b> agent. Below: the <b>11 always-on core tools</b> that are built in, and <b>73 on-demand skills</b> across 16 sections. Each entry shows what it does and a short <b>in-practice</b> example of it in use.</p>
+<p class="sub">An autonomous home-automation <b>SRE</b> agent. Below: the <b>11 always-on core tools</b> that are built in, and <b>84 on-demand skills</b> across 16 sections. Each entry shows what it does and a short <b>in-practice</b> example of it in use.</p>
 
 <div class="legend">
   <div><span class="k">Core tools</span><span>Always-active capabilities wired into the agent itself — how it sees, speaks, and acts.</span></div>
@@ -73,7 +73,7 @@ footer b{color:var(--txt)}
 <div class="pill"><div class="t">🔐 Vault</div><div class="d">Password-manager integration — credentials typed by the vault, never through chat.</div><div class="ex"><span class="exk">in practice</span>A site login → types the username, the vault fills the password, G approves.</div></div>
 </div></section>
 
-<section id="aut"><h2 class="lbl">Autonomous AI &amp; Orchestration <span class="count">6</span></h2>
+<section id="aut"><h2 class="lbl">Autonomous AI &amp; Orchestration <span class="count">9</span></h2>
 <div class="grid">
 <div class="card"><div class="name">hermes-agent</div><div class="desc">Use, configure, theme, and extend the Hermes Agent itself.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “add a status pill to my channel” → wires a job + a native message.</div></div>
 <div class="card"><div class="name">hermes-cron-jobs</div><div class="desc">Skip, pause, resume, or create scheduled cron jobs.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “skip the next two camera analyses” → adjusts the job and confirms.</div></div>
@@ -81,17 +81,24 @@ footer b{color:var(--txt)}
 <div class="card"><div class="name">honcho</div><div class="desc">Configure and troubleshoot Honcho memory.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “why did it forget my room names?” → inspects memory config and re-syncs.</div></div>
 <div class="card"><div class="name">computer-use</div><div class="desc">Drive the desktop background-first; escalate to the user on a signal.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “what does that settings dialog say?” → opens the GUI, reads the value, reports back.</div></div>
 <div class="card"><div class="name">opencode</div><div class="desc">Delegate coding to the OpenCode CLI for features or PR review.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “add a /status endpoint” → hands the diff to OpenCode, then reviews the result.</div></div>
+<div class="card"><div class="name">n8n-workflow-builder</div><div class="desc">Converts a plain-English automation request into ready-to-use n8n workflow JSON — HTTP nodes, HA Webhooks, OpenAI/LLM calls, filters and branches.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “when the doorbell fires, classify the clip and post it to #alerts” → emits a drop-in n8n workflow JSON.</div></div>
+<div class="card"><div class="name">agent-security-hardening</div><div class="desc">Security hardening guidance for AI agent runtimes: untrusted content, tool invocation, credentials, workspace writes, and multi-tenant safety.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “we are building a new agent worker” → reviews its tool surface and hardening gaps before it ships.</div></div>
+<div class="card"><div class="name">hermes-config-git-backup</div><div class="desc">Version-control a Hermes Agent setup to a private GitHub repo — configs, skills, and secrets tracked safely with a fail-closed .gitignore.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “keep my Hermes setup backed up” → commits the config, pushes to the private repo, verifies the push.</div></div>
 </div></section>
 
-<section id="cre"><h2 class="lbl">Creative &amp; Design <span class="count">9</span></h2>
+<section id="cre"><h2 class="lbl">Creative &amp; Design <span class="count">13</span></h2>
 <div class="grid">
 <div class="card"><div class="name">ascii-art</div><div class="desc">ASCII art: pyfiglet, cowsay, boxes, image-to-ascii.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “banner my name for the channel” → renders clean ANSI art.</div></div>
 <div class="card"><div class="name">comfyui</div><div class="desc">Generate images, video, and audio via diffusion workflows.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “a hero image for this page” → runs the workflow and drops a PNG.</div></div>
+<div class="card"><div class="name">comfy-imagegen-44</div><div class="desc">Local image generation on the AI rig via ComfyUI and the Z-Image graph.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “render a product still” → drives the local Z-Image graph and returns the PNG, no cloud calls.</div></div>
 <div class="card"><div class="name">design-md</div><div class="desc">Author, validate, and export DESIGN.md design-token specs.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “is our card radius a valid token?” → checks it against the spec.</div></div>
 <div class="card"><div class="name">dream-loop</div><div class="desc">Build 3D scenes via a concept-art fidelity loop: generate, build, screenshot, judge, iterate.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “make a night-sky hero” → generates, screenshots, judges, iterates until it matches.</div></div>
 <div class="card"><div class="name">excalidraw</div><div class="desc">Hand-drawn Excalidraw architecture, flow, and sequence diagrams.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “draw the server → rig data flow” → emits an editable file plus inline SVG.</div></div>
 <div class="card"><div class="name">pretext</div><div class="desc">Build creative browser demos with DOM-free text layout.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “turn this article into a scroll story” → builds a DOM-free text demo.</div></div>
 <div class="card"><div class="name">sketch</div><div class="desc">Throwaway HTML mockups: 2–3 design variants to compare.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “give me three looks for this card” → renders each variant to pick from.</div></div>
+<div class="card"><div class="name">brag</div><div class="desc">Turn a project website into a short, polished, shareable launch video using Hyperframes — reads the code directly, no live URL needed.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “brag about the Face ID site” → builds the launch video from the repo.</div></div>
+<div class="card"><div class="name">brag-slim</div><div class="desc">A lean launch-video generator from a repo or URL: music, motion, and share copy in one model-built file.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “quick promo clip for this page” → one self-contained video, no bundled assets.</div></div>
+<div class="card"><div class="name">keyframe-video-pipeline</div><div class="desc">Assemble short vertical videos from AI-generated keyframes with ffmpeg.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “turn these keyframes into a 15s reel” → stitches, transitions, and encodes the vertical cut.</div></div>
 <div class="card"><div class="name">touchdesigner-mcp</div><div class="desc">Control TouchDesigner via twozero MCP.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “bump the audio-reactive preset” → sends the parameter change.</div></div>
 <div class="card"><div class="name">webgl-scene-screenshot</div><div class="desc">Render, screenshot, and debug local three.js / WebGL scenes.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “why is my scene blank?” → loads it, screenshots, isolates the GL error.</div></div>
 </div></section>
@@ -101,12 +108,13 @@ footer b{color:var(--txt)}
 <div class="card"><div class="name">jupyter-live-kernel</div><div class="desc">Iterative Python via a live Jupyter kernel.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “explore this CSV” → loads it in a live kernel and works it slice by slice.</div></div>
 </div></section>
 
-<section id="dev"><h2 class="lbl">DevOps &amp; Containers <span class="count">4</span></h2>
+<section id="dev"><h2 class="lbl">DevOps &amp; Containers <span class="count">5</span></h2>
 <div class="grid">
 <div class="card"><div class="name">docker-management</div><div class="desc">Manage Docker containers, images, volumes, and Compose.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “which images can be pulled fresh?” → lists the updateable ones across the lab.</div></div>
 <div class="card"><div class="name">sdlc-review</div><div class="desc">Review Kanban handoffs and route verified outcomes.</div><div class="ex"><span class="exk">in practice</span>A ticket lands → validates the claim before routing it on.</div></div>
 <div class="card"><div class="name">github-pages-publish</div><div class="desc">Publish and verify HTML pages on the smartihats site.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “put this page up” → sanitizes it, pushes, and confirms it’s live.</div></div>
 <div class="card"><div class="name">python-service-deployment</div><div class="desc">Package a Python service for deployment (Dockerfile + systemd).</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “make this script a service” → ships a Dockerfile, unit file, and a quickstart.</div></div>
+<div class="card"><div class="name">monitoring-expert</div><div class="desc">Observability stack: Prometheus + Grafana, structured logging, alert rules, tracing, load testing, and capacity planning.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “why did the doorbell pipeline stall?” → reads the Prometheus targets and Grafana panel for the failing step.</div></div>
 </div></section>
 
 <section id="mail"><h2 class="lbl">Email <span class="count">3</span></h2>
@@ -157,10 +165,11 @@ footer b{color:var(--txt)}
 <div class="card"><div class="name">youtube-tutorial-study</div><div class="desc">Turn tutorial videos into tabbed HTML study guides.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “turn the Zigbee tutorial into steps” → transcribes it into a study guide.</div></div>
 </div></section>
 
-<section id="mlops"><h2 class="lbl">MLOps &amp; LLMs <span class="count">10</span></h2>
+<section id="mlops"><h2 class="lbl">MLOps &amp; LLMs <span class="count">11</span></h2>
 <div class="grid">
 <div class="card"><div class="name">audiocraft-audio-generation</div><div class="desc">AudioCraft: MusicGen text-to-music, AudioGen text-to-sound.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “a rain + SFX sound bed” → composes it via AudioCraft.</div></div>
-<div class="card"><div class="name">chroma</div><div class="desc">Embedding database for RAG and semantic search.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “search my docs for that clause” → queries the vector store.</div></div>
+<div class="card"><div class="name">chroma</div><div class="desc">Embedding store for RAG and semantic search.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “find the closest match in the corpus” → runs the vector query.</div></div>
+<div class="card"><div class="name">rag-architect</div><div class="desc">Designs RAG pipelines — chunking configs, retrieval flows, and query-answer composition for local-model agents.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “how should I chunk this doc set for the Obsidian RAG?” → proposes the chunking + retrieval config.</div></div>
 <div class="card"><div class="name">evaluating-llms-harness</div><div class="desc">lm-eval-harness benchmarks (MMLU, GSM8K, and more).</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “which model is stronger now?” → runs the benchmark.</div></div>
 <div class="card"><div class="name">huggingface-hub</div><div class="desc">HuggingFace hf CLI: search, download, upload models and datasets.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “grab a 3B vision model” → pulls it from the Hub.</div></div>
 <div class="card"><div class="name">llama-cpp</div><div class="desc">llama.cpp local GGUF inference and model discovery.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “run a 3B model on the small card” → serves the GGUF locally.</div></div>
@@ -171,7 +180,7 @@ footer b{color:var(--txt)}
 <div class="card"><div class="name">weights-and-biases</div><div class="desc">Log ML experiments, sweeps, and track the model registry.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “track this fine-tune” → logs the runs and sweeps.</div></div>
 </div></section>
 
-<section id="prod"><h2 class="lbl">Productivity &amp; Docs <span class="count">8</span></h2>
+<section id="prod"><h2 class="lbl">Productivity &amp; Docs <span class="count">9</span></h2>
 <div class="grid">
 <div class="card"><div class="name">box</div><div class="desc">Box cloud files: sharing, search, and metadata.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “find the signed NDA” → searches and opens it.</div></div>
 <div class="card"><div class="name">document-to-action-items</div><div class="desc">Extract cited obligations, deadlines, and tasks from documents.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “what do I owe in this contract?” → extracts owner + date for each item.</div></div>
@@ -180,15 +189,17 @@ footer b{color:var(--txt)}
 <div class="card"><div class="name">ocr-and-documents</div><div class="desc">Extract text from PDFs and scans (pymupdf, marker).</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “read this scanned receipt” → OCRs it into clean text.</div></div>
 <div class="card"><div class="name">petdex</div><div class="desc">Install and select animated agent mascots.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “give me a cat” → installs the mascot.</div></div>
 <div class="card"><div class="name">product-price-monitor</div><div class="desc">Watch product, flight, or listing prices and alert on target.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “alert me when it’s under $40” → watches and pings on the drop.</div></div>
+<div class="card"><div class="name">live-dashboard</div><div class="desc">Build self-updating dashboards from live data sources.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “a board with HA uptime, Immich growth, Ollama throughput” → wires the live sources into one page.</div></div>
 <div class="card"><div class="name">weekly-review-planning</div><div class="desc">Weekly reset: commitments, stalled work, and next-week plan.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “kick off the week” → drafts commitments and the plan.</div></div>
 </div></section>
 
-<section id="res"><h2 class="lbl">Research &amp; Search <span class="count">7</span></h2>
+<section id="res"><h2 class="lbl">Research &amp; Search <span class="count">8</span></h2>
 <div class="grid">
 <div class="card"><div class="name">blogwatcher</div><div class="desc">Monitor blogs and RSS / Atom feeds.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “any new posts on my feeds?” → digests just the delta.</div></div>
 <div class="card"><div class="name">competitor-news-monitor</div><div class="desc">Watch named companies for material news with cited digests.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “did vendor X ship anything?” → returns a cited digest.</div></div>
 <div class="card"><div class="name">grounded-citations</div><div class="desc">Ground answers and documents in cited, verifiable sources.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “prove that claim” → attaches the source per statement.</div></div>
-<div class="card"><div class="name">polymarket</div><div class="desc">Query Polymarket: markets, prices, orderbooks, history.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “what are the odds on X?” → pulls live market data.</div></div>
+<div class="card"><div class="name">polymarket</div><div class="desc">Query Polymarket: markets, prices, order books, and history.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “what’s the market pricing X?” → pulls the book and odds.</div></div>
+<div class="card"><div class="name">openclaw-obsidian-memory</div><div class="desc">OpenClaw + Obsidian vault for persistent memory: a durable knowledge base the agent reads from and writes to across sessions.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “remember this design decision for later” → files it in the Obsidian vault so it survives the session.</div></div>
 <div class="card"><div class="name">qmd</div><div class="desc">Hybrid local search over notes, docs, and transcripts.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “find where we discussed that” → searches the local corpus.</div></div>
 <div class="card"><div class="name">research-paper-writing</div><div class="desc">Write ML papers (NeurIPS / ICML / ICLR) from design to submission.</div><div class="ex"><span class="exk">in practice</span>A draft in hand → writes the sections and the figures plan.</div></div>
 <div class="card"><div class="name">searxng-search</div><div class="desc">Free keyless meta-search aggregating 70+ engines.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “best source for that doc?” → ranks results, no API key needed.</div></div>
@@ -212,6 +223,6 @@ footer b{color:var(--txt)}
 
 <footer>
   <b>Sanitization note:</b> This public page lists the agent’s capabilities and skills only. It deliberately omits host names, IP addresses, ports, mount paths, user names, and any credentials or keys. The lab’s three machines are shown only by role: <b>smart-home server · AI rig · general PC</b>.<br>
-  Hermes Agent (Nous Research) · 73 active skills across 16 sections · 11 always-on core tools · skills security-scanned via the curated registry · <span class="updated">last updated 2026-11-08</span>
+  Hermes Agent (Nous Research) · 84 on-demand skills across 16 sections · 11 always-on core tools · skills security-scanned via the curated registry · <span class="updated">last updated 2026-11-23</span>
 </footer>
 </div></body></html>
