@@ -42,7 +42,7 @@ footer b{color:var(--txt)}
 @media(max-width:560px){.ex{font-size:12px}.name{font-size:14px}}
 </style></head><body><div class="wrap">
 <h1><span class="logo">⚡ Hermes</span> — Capabilities &amp; Skills</h1>
-<p class="sub">An autonomous home-automation <b>SRE</b> agent. Below: the <b>11 always-on core tools</b> that are built in, and <b>84 on-demand skills</b> across 16 sections. Each entry shows what it does and a short <b>in-practice</b> example of it in use.</p>
+<p class="sub">An autonomous home-automation <b>SRE</b> agent. Below: the <b>11 always-on core tools</b> that are built in, and <b>87 on-demand skills</b> across 16 sections. Each entry shows what it does and a short <b>in-practice</b> example of it in use.</p>
 
 <div class="legend">
   <div><span class="k">Core tools</span><span>Always-active capabilities wired into the agent itself — how it sees, speaks, and acts.</span></div>
@@ -73,7 +73,7 @@ footer b{color:var(--txt)}
 <div class="pill"><div class="t">🔐 Vault</div><div class="d">Password-manager integration — credentials typed by the vault, never through chat.</div><div class="ex"><span class="exk">in practice</span>A site login → types the username, the vault fills the password, G approves.</div></div>
 </div></section>
 
-<section id="aut"><h2 class="lbl">Autonomous AI &amp; Orchestration <span class="count">9</span></h2>
+<section id="aut"><h2 class="lbl">Autonomous AI &amp; Orchestration <span class="count">10</span></h2>
 <div class="grid">
 <div class="card"><div class="name">hermes-agent</div><div class="desc">Use, configure, theme, and extend the Hermes Agent itself.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “add a status pill to my channel” → wires a job + a native message.</div></div>
 <div class="card"><div class="name">hermes-cron-jobs</div><div class="desc">Skip, pause, resume, or create scheduled cron jobs.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “skip the next two camera analyses” → adjusts the job and confirms.</div></div>
@@ -84,9 +84,10 @@ footer b{color:var(--txt)}
 <div class="card"><div class="name">n8n-workflow-builder</div><div class="desc">Converts a plain-English automation request into ready-to-use n8n workflow JSON — HTTP nodes, HA Webhooks, OpenAI/LLM calls, filters and branches.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “when the doorbell fires, classify the clip and post it to #alerts” → emits a drop-in n8n workflow JSON.</div></div>
 <div class="card"><div class="name">agent-security-hardening</div><div class="desc">Security hardening guidance for AI agent runtimes: untrusted content, tool invocation, credentials, workspace writes, and multi-tenant safety.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “we are building a new agent worker” → reviews its tool surface and hardening gaps before it ships.</div></div>
 <div class="card"><div class="name">hermes-config-git-backup</div><div class="desc">Version-control a Hermes Agent setup to a private GitHub repo — configs, skills, and secrets tracked safely with a fail-closed .gitignore.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “keep my Hermes setup backed up” → commits the config, pushes to the private repo, verifies the push.</div></div>
+<div class="card"><div class="name">skill-vetter</div><div class="desc">Security-first vetting of third-party skills before install — scans for red flags, permission scope, and suspicious patterns, then issues a verdict.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “vet this new skill before enabling it” → reads the source, sweeps for risky patterns, hands back a clean/pending/critical verdict.</div></div>
 </div></section>
 
-<section id="cre"><h2 class="lbl">Creative &amp; Design <span class="count">13</span></h2>
+<section id="cre"><h2 class="lbl">Creative &amp; Design <span class="count">14</span></h2>
 <div class="grid">
 <div class="card"><div class="name">ascii-art</div><div class="desc">ASCII art: pyfiglet, cowsay, boxes, image-to-ascii.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “banner my name for the channel” → renders clean ANSI art.</div></div>
 <div class="card"><div class="name">comfyui</div><div class="desc">Generate images, video, and audio via diffusion workflows.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “a hero image for this page” → runs the workflow and drops a PNG.</div></div>
@@ -101,6 +102,7 @@ footer b{color:var(--txt)}
 <div class="card"><div class="name">keyframe-video-pipeline</div><div class="desc">Assemble short vertical videos from AI-generated keyframes with ffmpeg.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “turn these keyframes into a 15s reel” → stitches, transitions, and encodes the vertical cut.</div></div>
 <div class="card"><div class="name">touchdesigner-mcp</div><div class="desc">Control TouchDesigner via twozero MCP.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “bump the audio-reactive preset” → sends the parameter change.</div></div>
 <div class="card"><div class="name">webgl-scene-screenshot</div><div class="desc">Render, screenshot, and debug local three.js / WebGL scenes.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “why is my scene blank?” → loads it, screenshots, isolates the GL error.</div></div>
+<div class="card"><div class="name">bibleverse-kids-video</div><div class="desc">Build bible-verse-for-kids episode videos — 120s, 720p, captioned and ready to share with the little ones.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “make an episode on the Good Samaritan” → renders the full episode with visuals, captions, and music.</div></div>
 </div></section>
 
 <section id="data"><h2 class="lbl">Data Science <span class="count">1</span></h2>
@@ -180,7 +182,7 @@ footer b{color:var(--txt)}
 <div class="card"><div class="name">weights-and-biases</div><div class="desc">Log ML experiments, sweeps, and track the model registry.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “track this fine-tune” → logs the runs and sweeps.</div></div>
 </div></section>
 
-<section id="prod"><h2 class="lbl">Productivity &amp; Docs <span class="count">9</span></h2>
+<section id="prod"><h2 class="lbl">Productivity &amp; Docs <span class="count">10</span></h2>
 <div class="grid">
 <div class="card"><div class="name">box</div><div class="desc">Box cloud files: sharing, search, and metadata.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “find the signed NDA” → searches and opens it.</div></div>
 <div class="card"><div class="name">document-to-action-items</div><div class="desc">Extract cited obligations, deadlines, and tasks from documents.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “what do I owe in this contract?” → extracts owner + date for each item.</div></div>
@@ -191,6 +193,7 @@ footer b{color:var(--txt)}
 <div class="card"><div class="name">product-price-monitor</div><div class="desc">Watch product, flight, or listing prices and alert on target.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “alert me when it’s under $40” → watches and pings on the drop.</div></div>
 <div class="card"><div class="name">live-dashboard</div><div class="desc">Build self-updating dashboards from live data sources.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “a board with HA uptime, Immich growth, Ollama throughput” → wires the live sources into one page.</div></div>
 <div class="card"><div class="name">weekly-review-planning</div><div class="desc">Weekly reset: commitments, stalled work, and next-week plan.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “kick off the week” → drafts commitments and the plan.</div></div>
+<div class="card"><div class="name">microsoft-office</div><div class="desc">Create, read, and edit Word, PowerPoint, and Excel files — decks from notes, spreadsheets built and filled, docs reformatted.</div><div class="ex"><span class="exk">in practice</span><span class="you">G:</span> “turn these notes into a client deck” → builds a formatted .pptx with the sections he asked for.</div></div>
 </div></section>
 
 <section id="res"><h2 class="lbl">Research &amp; Search <span class="count">8</span></h2>
@@ -223,6 +226,6 @@ footer b{color:var(--txt)}
 
 <footer>
   <b>Sanitization note:</b> This public page lists the agent’s capabilities and skills only. It deliberately omits host names, IP addresses, ports, mount paths, user names, and any credentials or keys. The lab’s three machines are shown only by role: <b>smart-home server · AI rig · general PC</b>.<br>
-  Hermes Agent (Nous Research) · 84 on-demand skills across 16 sections · 11 always-on core tools · skills security-scanned via the curated registry · <span class="updated">last updated 2026-11-23</span>
+  Hermes Agent (Nous Research) · 87 on-demand skills across 16 sections · 11 always-on core tools · skills security-scanned via the curated registry · <span class="updated">last updated 2026-11-26</span>
 </footer>
 </div></body></html>
